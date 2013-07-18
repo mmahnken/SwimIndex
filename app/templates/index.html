@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Get a Swim Set.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/flatUI/images/favicon.ico">
+</head>
+<body>
+    <div class="container">
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Get a Swim Set.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+</head>
+<body>
+    <div class="container">
+        <h1 class="demo-logo">
+          <div class="logo"></div>
+          Get a swim workout.
+          <small>Just keep swimming.</small>
+        </h1>
+      </div>
+      <div class="container">
+        <form action="/new_workout" method="post" name="new_workout">
+            {{form.hidden_tag()}}
+            <p>
+            <h3># sets</h3>{{form.num_sets}} </p><br>
+            {% for error in form.errors.username %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <p>
+            <h3>Total Yardage (must be an increment of 100)</h3> {{form.total_yardage}} </p>
+            {% for error in form.errors.username %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <p>
+            <div class="span11">
+            <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

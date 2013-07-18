@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SWIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/flatUI/images/icons/swimIcon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="demo-logo">
+        <div class="logo"></div></div>
+        <h1> Create a new swim workout. </h1>
+        <form action="/new_workout" method="post" name="new_workout">
+            {{form.hidden_tag()}}
+            <p>
+            {{form.num_sets}} # sets</p>
+            {% for error in form.errors.username %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <p>
+            {{form.total_yardage}} Total Yardage (must be an increment of 100)</p>
+            {% for error in form.errors.username %}
+            <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+            <p>
+            <div class="span3">
+                <a href="/new_workout" class="btn btn-large btn-block btn-info">Change Workout Settings</a>
+            </div></p>
+            <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p>
+        </form>    
+    </div>
+</body>
+</html>

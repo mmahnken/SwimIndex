@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Get a Swim Set.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/flatUI/images/icons/swimIcon.png">
+</head>
+<body>
+    <div class="container">
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>swimCreate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="demo-logo">
+          <div class="logo"></div>
+          swimCreate
+          <small>Just keep swimming.</small>
+        </h1><br>
+    </div>
+    <div class="container">
+        <h4><p>You asked for a set. And here it is. Hot off the presses.</p></h4>
+        <h3>
+        <p> {{set}} {% if interval %} @ {{interval}} {% endif %} </p>
+        <p>{% if easy %}
+        <ul><small>+ {{easy}}yd. Easy</small></ul>
+        {% endif %} </p>
+        <p> {% if time %}
+            Total Time: {{time}}
+            {% endif %}
+        </p></h3>
+    </div>
+    <div class="container">
+        <a href="/newset" class = "btn btn-large btn-block btn-info">Same Settings, Different Workout</a>
+       

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Get a Swim Set.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/flatUI/images/icons/swimIcon.png">
+</head>
+<body>
+    <div class="container">
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>swimCreate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
+<!-- replace favicon.ico with a new image.-->
+</head>
+<body>
+    <div class="container">
+        <h1 class="demo-logo">
+          <div class="logo"></div>
+          swimCreate
+          <small>Pick up a swim workout.</small>
+        </h1>
+    </div>
+    <div class="container">
+      <h2>First, make a set.</h2><br>
+      <form action = "/newset" method = "post">
+        <p>
+          <big>What kind of set do you want?</big>
+              {{form.type_of_set}}</p> 
+        <p>
+            <big>How many yards?</big> (go for an increment 25) {{form.total_yardage}} </p>
+        <p>  <big>Which stroke?</big>
+          {{form.stroke}} </p>
+        <p>
+           <big> Optional: What's the pace (your interval for 10 X 100 freestyle)? <big> {{form.interval}}</p>
+          <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p>                               
+
+
+
+      </form>
+         

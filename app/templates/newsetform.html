@@ -1,0 +1,22 @@
+{% extends "index2.html" %}
+{% block content %}
+
+ <div class="container">
+      <h2>Make a set!</h2><br>
+      <form action = "/newset" method = "post">
+        <p>
+          <big>What kind of set do you want?</big>
+              {{form.type_of_set}}</p> 
+        <p>
+            <big>How many yards?</big> (go for an increment 25) {{form.total_yardage}} </p>
+        <p>  <big>Which stroke?</big>
+          {{form.stroke}} </p>
+        <p>
+           <big> Optional: What's the pace (your interval for 10 X 100 freestyle)? <big> {{form.interval}}</p>
+          <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p>                               
+
+
+
+      </form>
+
+{% endblock %}
