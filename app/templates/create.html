@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>SWIM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Loading Bootstrap -->
-    <link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Loading Flat UI -->
-    <link href="../static/flatUI/flat-ui.css" rel="stylesheet">
-<!-- replace favicon.ico with a new image.-->
-    <link rel="shortcut icon" href="../static/flatUI/images/icons/swimIcon.png">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+    <div class="block-controls" id="version">
+        <h1> Make a set </h1>
     <div class="container">
-        <div class="demo-logo">
-        <div class="logo"></div></div>
-        <h1> Create a new swim workout. </h1>
-        <form action="/new_workout" method="post" name="new_workout">
-            {{form.hidden_tag()}}
-            <p>
-            {{form.num_sets}} # sets</p>
-            {% for error in form.errors.username %}
-            <span style="color: red;">[{{error}}]</span>
-            {% endfor %}
-            <p>
-            {{form.total_yardage}} Total Yardage (must be an increment of 100)</p>
-            {% for error in form.errors.username %}
-            <span style="color: red;">[{{error}}]</span>
-            {% endfor %}
-            <p>
-            <div class="span3">
-                <a href="/new_workout" class="btn btn-large btn-block btn-info">Change Workout Settings</a>
-            </div></p>
-            <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p>
-        </form>    
-    </div>
-</body>
-</html>
+      <h2>Select your settings below.</h2><br>
+      <form action = "/newset" method = "post">
+        <p>
+          <big>What kind of set do you want?</big>
+              {{form.type_of_set}}</p> 
+        <p>
+            <big>How many yards?</big> (go for an increment 25) {{form.total_yardage}} </p>
+        <p>  <big>Which stroke?</big>
+          {{form.stroke}} </p>
+        <p>
+           <big> Optional: What's the pace (your interval for 10 X 100 freestyle)? <big> {{form.interval}}</p>
+          <div class="span9">
+          <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p> 
+          </div>
+      </form>
+        </div>   
+ 
+
+{% endblock %}

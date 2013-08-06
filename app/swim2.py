@@ -1,5 +1,6 @@
 import random
 import datetime
+import intervals
 
 def makeSet(total_yardage, size):
 	if size == "short":
@@ -51,6 +52,67 @@ def setStroke(swim_set_array, stroke):
 		return swim_set_array
 	else:
 		return "enter a valid stroke code"
+
+def setInterval(swim_set_array, speed):
+	if speed == "1:15":
+		ints = intervals.INTS_115
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed == "1:20":
+		ints  = intervals.INTS_120
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed == "1:25":
+		ints = intervals.INTS_125
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed =="1:30":
+		ints = intervals.INTS_130
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed =="1:40":
+		ints = intervals.INTS_140
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed == "1:50":
+		ints = intervals.INTS_150
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	elif speed == "2:00":
+		ints = intervals.INTS_200
+		if swim_set_array["stroke"] == None or swim_set_array['stroke'] == 'Freestyle':	
+			a = swim_set_array["items"]
+			swim_set_array["interval"] = ints[a]
+			return swim_set_array
+		else:
+			return swim_set_array
+	else:
+		return "Invalid speed"
+		
 
 
 def for115(swim_set_array):
@@ -146,11 +208,14 @@ def for200(swim_set_array):
 
 def totalTime(swim_set_array):
 	interval = swim_set_array["interval"]
-	reps = swim_set_array["reps"]
-	d = datetime.datetime.strptime(interval, '%M:%S')
-	t = datetime.timedelta(minutes = d.minute, seconds = d.second)
-	total = t * reps
-	return total
+	if interval is None:
+		return
+	else:
+		reps = swim_set_array["reps"]
+		d = datetime.datetime.strptime(interval, '%M:%S')
+		t = datetime.timedelta(minutes = d.minute, seconds = d.second)
+		total = t * reps
+		return total
 
 def createWorkout():
 	workout = []

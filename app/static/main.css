@@ -1,0 +1,17 @@
+.block-controls#version {
+  background: #99FFCC;
+  padding: 20px 15px 15px 15px ;
+  text-align: left; }
+
+.block-controls#version .center {
+	text-align: center;
+}
+
+.block-controls#version h1 {
+	font: 400px 58px/58px "capriola";
+	margin:0 0 32px 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+

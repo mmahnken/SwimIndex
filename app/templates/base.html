@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Swim Index</title>
+	<link href="../static/main.css" rel="stylesheet">
+	<link href="../static/flatUI/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href='http://fonts.googleapis.com/css?family=Pontano+Sans|Capriola' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+
+
+<body>
+	<div class="container-fluid span2">
+		<a href="{{url_for('index')}}">index</a><br>
+		<a href="{{url_for('create')}}">make a new set</a><br>
+		<a href="">make a new workout</a><br>
+		<a href="">interval charts</a><br>
+	</div>
+
+	<div class='container-fluid span10'>
+		<div class='block-controls' id="version">
+		{% block content %}
+		{% endblock %}
+		</div>
+	</div>
+</body>
+
