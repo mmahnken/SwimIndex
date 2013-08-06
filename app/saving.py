@@ -1,4 +1,4 @@
-from models import Set
+from models import Set, Workout
 from app import app, db
 
 def saving_Set(swim_set_dict):
@@ -11,6 +11,12 @@ def saving_Set(swim_set_dict):
 	total_yardage = swim_set_dict['total_yardage'])
 	db.session.add(s)
 	db.session.commit()
-	return
+	return s.id
+
+def creating_Workout():
+	w = Workout()
+	db.session.add(w)
+	db.session.commit()
+	return w.id
 
 

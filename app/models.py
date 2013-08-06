@@ -34,10 +34,15 @@ class Set(db.Model):
 	type_of_set = db.Column(db.String)
 	total_yardage = db.Column(db.Integer)
 	test = db.Column(db.Integer)
+	workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'))
 
 	def is_long(self):
 		if self.type_of_set == "long":
 			return True
 		else:
 			return False
+
+class Workout(db.Model):
+	id = db.Column(db.Integer, primary_key = True)
+	sets = db.relationship('Set', backref = 'Workout')
 

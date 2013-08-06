@@ -15,6 +15,9 @@
 		<a href="{{url_for('create')}}">make a new set</a><br>
 		<a href="">make a new workout</a><br>
 		<a href="">interval charts</a><br>
+		{% if session['workout'] %}
+		<a href="{{url_for('yourworkout')}}">your workout</a><br>
+		{% endif %}
 	</div>
 
 	<div class='container-fluid span10'>

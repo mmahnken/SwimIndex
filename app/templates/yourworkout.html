@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Your Workout </h1>
+<h1> Warm Up </h1><br>
+{% for s in sets %} 
+<h1> {{s.reps}} X {{s.items}} {{s.stroke}} @ {{s.interval}} </h1>
+ {% if s.easy %} <h2>{{s.easy}} Easy </h2> {% endif %}
+{% endfor %}
+<br><h1> Cool Down </h1>
+{% endblock %}

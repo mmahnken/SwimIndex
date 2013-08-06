@@ -215,7 +215,9 @@ def totalTime(swim_set_array):
 		d = datetime.datetime.strptime(interval, '%M:%S')
 		t = datetime.timedelta(minutes = d.minute, seconds = d.second)
 		total = t * reps
-		return total
+		time = total.__str__()
+		swim_set_array['time'] = time
+		return swim_set_array
 
 def createWorkout():
 	workout = []
