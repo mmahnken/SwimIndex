@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, session, url_for, request
 from app import app, db
 from swim2 import makeSet, setStroke, totalTime, setInterval
 from forms import NewSetForm
-from models import Set, Workout
+from models import Set, Workout, FreestyleInt
 import saving
 from saving import saving_Set, creating_Workout
 
@@ -56,5 +56,21 @@ def yourworkout():
 	sets = Set.query.filter_by(workout_id = w).all()
 	print sets[0]
 	return render_template('yourworkout.html', sets = sets)
+
+@app.route('/charts')
+def charts():
+	all_freestyle_ints = FreestyleInt.query.all()
+	chart_names = ["25 Yards", "50 Yards", "75 Yards",
+	"100 Yards", "125 Yards", "150 Yards", "175 Yards",
+	"200 Yards", "225 Yards", "250 Yards",
+	"300 Yards", "400 Yards", "450 Yards", "500 Yards",
+	"600 Yards", "800 Yards", "1000 Yards", "1650 Yards"]
+	columns = ['a25', 'a50', 'a75', 'a100', 'a125', 'a150', 'a175', 'a200',
+	'a225', 'a250', 'a300', 'a400', 'a450', 'a500', 'a600', 'a800', 'a1000', 
+	'a1650']
+	return render_template("charts.html", 
+	all_freestyle_ints = all_freestyle_ints,
+	chart_names = chart_names,
+	columns = columns)
 
 

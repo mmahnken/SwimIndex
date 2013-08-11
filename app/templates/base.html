@@ -11,10 +11,10 @@
 
 <body>
 	<div class="container-fluid span2">
-		<a href="{{url_for('index')}}">index</a><br>
+		<a href="{{url_for('index')}}">about</a><br>
 		<a href="{{url_for('create')}}">make a new set</a><br>
 		<a href="">make a new workout</a><br>
-		<a href="">interval charts</a><br>
+		<a href="/charts">interval charts</a><br>
 		{% if session['workout'] %}
 		<a href="{{url_for('yourworkout')}}">your workout</a><br>
 		{% endif %}

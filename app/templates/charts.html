@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Freestyle Intervals</h1>
+<table border = "2">
+<tr>
+	<td><b> speed </b> </td>
+	{% for c in chart_names[0:8] %}
+	<td> <b> {{c}} </b> </td>
+	{% endfor %}
+</tr>
+{% for i in all_freestyle_ints %}
+<tr>
+	<td> {{i.speed}} </td>
+	<td> {{i.a25}} </td>
+	<td> {{i.a50}} </td>
+	<td> {{i.a75}} </td>
+	<td> {{i.a100}} </td>
+	<td> {{i.a125}} </td>
+	<td> {{i.a150}} </td>
+	<td> {{i.a175}} </td>
+	<td> {{i.a200}} </td>
+
+</tr>
+{% endfor %}
+</table>
+<br>
+<table border = "2">
+<tr>
+	<td><b> speed </b> </td>
+	{% for c in chart_names[8:] %}
+	<td> <b> {{c}} </b> </td>
+	{% endfor %}
+</tr>
+{% for i in all_freestyle_ints %}
+<tr>
+	<td> {{i.speed}} </td>
+	<td> {{i.a225}} </td>
+	<td> {{i.a250}} </td>
+	<td> {{i.a300}} </td>
+	<td> {{i.a400}} </td>
+	<td> {{i.a450}} </td>
+	<td> {{i.a500}} </td>
+	<td> {{i.a600}} </td>
+	<td> {{i.a800}} </td>
+	<td> {{i.a1000}} </td>
+	<td> {{i.a1650}} </td>
+
+</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}
+

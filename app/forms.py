@@ -4,7 +4,6 @@ class LoginForm(Form):
 	openid = TextField('openid', validators = [Required()])
 	remember_me = BooleanField('remember_me', default = False)
 	
-
 class NewSetForm(Form):
 	total_yardage = TextField('total_yardage', validators = [Required()])
 	type_of_set = SelectField('total_yardage', choices=[('mid', 'Middle Distance'),

@@ -1,4 +1,5 @@
 from app import db
+import datetime
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
@@ -45,4 +46,28 @@ class Set(db.Model):
 class Workout(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	sets = db.relationship('Set', backref = 'Workout')
+
+class FreestyleInt(db.Model):
+	id = db.Column(db.Integer, primary_key = True)
+	speed = db.Column(db.String(64))
+	a25 = db.Column(db.String(64))
+	a50 = db.Column(db.String(64))
+	a75 = db.Column(db.String(64))
+	a100 = db.Column(db.String(64))
+	a125 = db.Column(db.String(64))
+	a150 = db.Column(db.String(64))
+	a175 = db.Column(db.String(64))
+	a200 = db.Column(db.String(64))
+	a225 = db.Column(db.String(64))
+	a250 = db.Column(db.String(64))
+	a300 = db.Column(db.String(64))
+	a400 = db.Column(db.String(64))
+	a450 = db.Column(db.String(64))
+	a500 = db.Column(db.String(64))
+	a600 = db.Column(db.String(64))
+	a800 = db.Column(db.String(64))
+	a1000 = db.Column(db.String(64))
+	a1650 = db.Column(db.String(64))
+
+
 
