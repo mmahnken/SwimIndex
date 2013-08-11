@@ -35,7 +35,7 @@ def newset():
 
 @app.route('/add/<set_id>')
 def add(set_id):
-	if session['workout']:
+	if 'workout' in session:
 		s = Set.query.filter_by(id=set_id).first()
 		print s.id
 		print s.stroke
@@ -54,7 +54,6 @@ def add(set_id):
 def yourworkout():
 	w = session['workout']
 	sets = Set.query.filter_by(workout_id = w).all()
-	print sets[0]
 	return render_template('yourworkout.html', sets = sets)
 
 @app.route('/charts')
