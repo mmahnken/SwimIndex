@@ -1,10 +1,10 @@
 from flask import render_template, flash, redirect, session, url_for, request
 from app import app, db
-from swim2 import makeSet, setStroke, totalTime, setInterval
+from swim2 import makeSet, setStroke, totalTime, setInterval, totalYardage 
 from forms import NewSetForm
 from models import Set, Workout, FreestyleInt
 import saving
-from saving import saving_Set, creating_Workout
+from saving import saving_Set, creating_Workout, queryConfig
 
 @app.route('/')
 @app.route('/index')
@@ -64,12 +64,57 @@ def charts():
 	"200 Yards", "225 Yards", "250 Yards",
 	"300 Yards", "400 Yards", "450 Yards", "500 Yards",
 	"600 Yards", "800 Yards", "1000 Yards", "1650 Yards"]
-	columns = ['a25', 'a50', 'a75', 'a100', 'a125', 'a150', 'a175', 'a200',
-	'a225', 'a250', 'a300', 'a400', 'a450', 'a500', 'a600', 'a800', 'a1000', 
-	'a1650']
 	return render_template("charts.html", 
 	all_freestyle_ints = all_freestyle_ints,
-	chart_names = chart_names,
-	columns = columns)
+	chart_names = chart_names)
+
+@app.route('/create_own_set')
+def create_own_set():
+	form = NewSetForm()
+	return render_template("create_own_set.html", form = form)
+
+@app.route('/add_own_set', methods = ["POST", "GET"])
+def add_own_set():
+	print ""
+	print "speed for 10X100 is:"
+	print request.form['interval']
+	print ""
+	swim_set_array = {}
+	swim_set_array['easy'] = None
+	swim_set_array['stroke'] = request.form["stroke"]
+	swim_set_array['reps'] = request.form['reps']
+	swim_set_array['items'] = request.form['items']
+	a = swim_set_array['items']
+	if a==25 or a==50 or a==75 or a==100:
+		swim_set_array['type_of_set'] = 'short'
+	elif a==125 or a==150 or a==175:
+		swim_set_array['type_of_set'] = 'mid'
+	else:
+		swim_set_array['type_of_set'] = 'long'
+	if request.form['interval'] is not None:
+		swimmer=FreestyleInt.query.filter_by(speed = request.form['interval']).first()
+		print "query successful"
+		print swimmer
+		print "this swimmers time fo ra 25 is:"
+		print swimmer.a25
+		int_for_set = queryConfig(request.form['items'], swimmer)
+		print int_for_set
+		swim_set_array['interval'] = int_for_set
+	else:
+		swim_set_array['interval'] = request.form['int_for_set']
+	totalYardage(swim_set_array)
+	set_id = saving_Set(swim_set_array)		#savingSet returns the set's id in the db.
+	time = totalTime(swim_set_array)
+	print ''
+	print swim_set_array
+	print swim_set_array['reps']
+	print type(swim_set_array['reps'])
+	print ''
+	session['sets'] = swim_set_array
+	return render_template("newset.html", 
+		set_dict = session['sets'], 
+		set_id = set_id)
+
+
 
 

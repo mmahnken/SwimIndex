@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="block-controls" id="version">
+        <h1> Make Your 0wn Set </h1>
+    <div class="container">
+      <form action = "/add_own_set" method = "post">
+        <h2> <big>{{form.reps}} X {{form.items}}</big> </h2>
+        <h2>  <big>Stroke</big>
+          {{form.stroke}} </h2>
+        <h2>
+           <big> Interval (fill out at least one) <big> <br>
+            <table border = '1' cellpadding = '5'>
+              <tr>
+                <td> <h4> Your Speed for 10 X 100 Freestyle </h4> </td>
+                <td>    OR    </td>
+                <td> <h4> Just set the interval </h4></td>
+              <tr>
+                <td>
+              {{form.interval}}</td>
+                <td>   </td>
+                <td>
+              {{form.int_for_set}}
+            </table></h2>
+          <div class="span8">
+          <input class="btn btn-large btn-block btn-info" type="submit" value="Create"></p> 
+          </div>
+      </form>
+        </div>   
+ 
+
+{% endblock %}

@@ -211,17 +211,32 @@ def totalTime(swim_set_array):
 	if interval is None:
 		return
 	else:
-		reps = swim_set_array["reps"]
+		reps = int(swim_set_array["reps"])
 		d = datetime.datetime.strptime(interval, '%M:%S')
 		t = datetime.timedelta(minutes = d.minute, seconds = d.second)
+		print "type of t is"
+		print type(t)
+		print t 
+		print "type of reps is"
+		print type(reps)
+		print reps
 		total = t * reps
 		time = total.__str__()
 		swim_set_array['time'] = time
 		return swim_set_array
-
+		
 def createWorkout():
 	workout = []
 	return workout
+
+def totalYardage(swim_set_array):
+	#Sets the total yardage in the dictionary if both items and reps exist.
+	if swim_set_array['items'] == None or swim_set_array['reps'] == None:
+		return
+	else:
+		yardage = int(swim_set_array['reps']) * int(swim_set_array['items'])
+		swim_set_array['total_yardage'] = yardage
+		return 
 
 
 

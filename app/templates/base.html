@@ -10,17 +10,19 @@
 
 
 <body>
-	<div class="container-fluid span2">
+	<div class="container-fluid span3">
 		<a href="{{url_for('index')}}">about</a><br>
-		<a href="{{url_for('create')}}">make a new set</a><br>
-		<a href="">make a new workout</a><br>
+		<a href="{{url_for('create')}}">auto generate a workout</a><br>
+		<a href="{{url_for('create_own_set')}}">make your own workout</a><br>
+		<a href =''>new and born-again swimmers</a><br>
 		<a href="/charts">interval charts</a><br>
 		{% if session['workout'] %}
 		<a href="{{url_for('yourworkout')}}">your workout</a><br>
 		{% endif %}
+
 	</div>
 
-	<div class='container-fluid span10'>
+	<div class='container-fluid span9'>
 		<div class='block-controls' id="version">
 		{% block content %}
 		{% endblock %}
